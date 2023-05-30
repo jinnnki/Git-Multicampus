@@ -20,7 +20,10 @@ jobs:
           distribution: 'adopt'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install #mvn --batch-mode -DskipTests package
 
       - name: Run tests
-        run: mvn test
+        run: mvn test #mvn --batch-mode test
+
+      - name: Run Static Code Analysis
+        run: mvn spotbugs:check
