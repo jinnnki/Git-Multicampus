@@ -1,0 +1,25 @@
+name: Deploy to AWS S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        uses: aws-actions/configure-aws-credentials@v1 #aws를 사용하려면 credentials를 써야하는구나를 알고있으면 된다.
+        with:
+          aws-access-key-id: ${{ secrets.AKIAXBLN5SIO6JGX3SY3 }}
+          aws-secret-access-key: ${{ secrets.Hm1KlP3UxQCk5m2DOwmi+LpqjR3Awehz0/vj0JIS }}
+          aws-region: ap-northeast-2
+
+      - name: Deploy
+        run: |
+          aws s3 cp index.html s3://github-actions-deploy-jinki
