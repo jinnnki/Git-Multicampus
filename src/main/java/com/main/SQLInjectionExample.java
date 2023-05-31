@@ -10,10 +10,7 @@ public class SQLInjectionExample {
 
     private static String getUserInput() {
         // 사용자로부터 입력 받는 로직
-<<<<<<< HEAD
-        return "TEST"; //commit1-4
-=======
-        return "TEST"; //commit1-3
->>>>>>> feature/rebase-demo1
+        return "TEST"; //commit1
+
     }
 }
